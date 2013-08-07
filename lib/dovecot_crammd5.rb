@@ -101,6 +101,8 @@ module DovecotCrammd5
   end
 
   def self.calc(secret)
+    raise ArgumentError unless secret.is_a?(String)
+
     if secret.length > 64
       secret = Digest::MD5.digest(secret)
     end
